@@ -1,0 +1,56 @@
+#pragma once
+#include "Object.h"
+class Node;
+
+class Widget : NamedObject {
+public:
+    uint32_t field1_0x20;
+    float field2_0x24;
+    uint32_t field3_0x28;
+    uint32_t field4_0x2c;
+    uint32_t field5_0x30;
+    uint32_t field6_0x34;
+    void* plasma_D3D9RenderSurface;
+    uint32_t x_offset;
+    uint32_t y_offset;
+    uint32_t field10_0x44;
+    uint32_t field11_0x48;
+    float field12_0x4c;
+    float field13_0x50;
+    uint32_t field14_0x54;
+    uint32_t field15_0x58;
+    float field16_0x5c;
+    float field17_0x60;
+    uint32_t field18_0x64;
+    uint32_t field19_0x68;
+    float width;
+    float height;
+    uint32_t field22_0x74;
+    uint32_t field23_0x78;
+    uint32_t field24_0x7c;
+    uint32_t field25_0x80;
+    uint32_t field26_0x84;
+    uint32_t field27_0x88;
+    uint32_t field28_0x8c;
+    uint32_t field29_0x90;
+    uint32_t field30_0x94;
+    uint32_t field31_0x98;
+    uint32_t field32_0x9c;
+    uint32_t field33_0xa0;
+    float some_matrix_1[0x10];
+    float some_matrix_2[0x10];
+    uint32_t flags;
+    uint32_t field37_0x128;
+    uint32_t field38_0x12c;
+    uint32_t field39_0x130;
+    uint32_t field40_0x134;
+    uint32_t field41_0x138;
+    uint32_t field42_0x13c;
+    uint32_t field43_0x140;
+    Node* node;
+    uint32_t field45_0x148;
+    uint32_t field46_0x14c;
+    uint32_t field47_0x150;
+    uint32_t field48_0x154;
+    uint32_t field49_0x158;
+};

@@ -1,0 +1,58 @@
+#pragma once
+#include "Object.h"
+class Widget;
+
+class Node : NamedObject {
+public:
+    uint32_t field1_0x20;
+    Node* parent_node_or_base_maybe;
+    uint32_t children_nodes_linked_list;
+    uint32_t unk;
+    void* shape;
+    void* transformation;
+    void* display;
+    Widget* related_widget;
+    uint32_t field9_0x40;
+    uint32_t field10_0x44;
+    uint32_t field11_0x48;
+    uint32_t field12_0x4c;
+    uint32_t field13_0x50;
+    uint32_t field14_0x54;
+    uint32_t field15_0x58;
+    uint32_t field16_0x5c;
+    uint32_t field17_0x60;
+    uint32_t field18_0x64;
+    uint32_t field19_0x68;
+    uint32_t field20_0x6c;
+    uint32_t field21_0x70;
+    uint32_t field22_0x74;
+    uint32_t field23_0x78;
+    uint32_t field24_0x7c;
+    uint32_t field25_0x80;
+    uint32_t field26_0x84;
+    uint32_t field27_0x88;
+    uint32_t field28_0x8c;
+    uint32_t field29_0x90;
+    uint32_t field30_0x94;
+    uint32_t field31_0x98;
+    uint32_t field32_0x9c;
+    uint32_t field33_0xa0;
+    uint32_t field34_0xa4;
+    uint32_t field35_0xa8;
+    uint32_t field36_0xac;
+    uint32_t field37_0xb0;
+    uint32_t field38_0xb4;
+    uint32_t field39_0xb8;
+    uint32_t field40_0xbc;
+    uint32_t field41_0xc0;
+    uint32_t field42_0xc4;
+    uint32_t field43_0xc8;
+    uint32_t field44_0xcc;
+    uint32_t field45_0xd0;
+    uint32_t field46_0xd4;
+    uint32_t field47_0xd8;
+    uint32_t field48_0xdc;
+    uint32_t field49_0xe0;
+    uint32_t field50_0xe4;
+    uint32_t field51_0xe8;
+};
