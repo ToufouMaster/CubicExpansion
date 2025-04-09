@@ -243,7 +243,10 @@ public:
 		int64_t parent_owner;
 		int field_190;
 		int field_194;
-		int power_base;
+		uint8_t power_base;
+		uint8_t field_199;
+		uint8_t field_19a;
+		uint8_t field_19b;
 		int field_19C;
 		int field_1A0;
 		int field_1A4;
