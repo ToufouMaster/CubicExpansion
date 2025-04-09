@@ -10,8 +10,7 @@ if (POLICY CMP0141)
 endif()
 
 project ("CubicExpansion")
-
-add_library(CubicExpansion SHARED "CubicExpansion.cpp" "cube.h" "Creature.h" "Hooks/__OnGetCreatureDamage.h" "scale_functions.h" "Hooks/__OnGetItemHealth.h" "Hooks/__OnGetItemDamage.h" "Hooks/__OnGetItemArmor.h" "Hooks/__OnGetItemRegeneration.h" "Hooks/__OnGetItemPower.h" "Hooks/__OnGetItemResistance.h" "Hooks/__OnCanCreatureEquipItem.h" "Hooks/__OnSetCraftItemCraftingComponents.h" "Hooks/__OnGetCoinAmount.h" "Hooks/__OnUpdateCraftingInventoryItems.h" "plasma/Widget.h" "plasma/Node.h" "InventoryWidget.h" "plasma.h" "Hooks/__OnTemporaryFunctionDebug.h" "Hooks/__OnAddingPotionCraftKnowledge.h" "Hooks/__OnInventoryWidgetTabUpdate.h" "Hooks/__OnRessourceCreatureGetItemDrop.h" "Hooks/__OnCharacterWidgetRatingsUpdate.h" "Hooks/__OnGetCreaturePower.h")
+add_library(CubicExpansion SHARED "CubicExpansion.cpp" "Hooks/__OnGetCreatureArmor.h" "Hooks/__OnGetCreatureResistance.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET CubicExpansion PROPERTY CXX_STANDARD 20)

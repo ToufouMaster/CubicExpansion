@@ -67,6 +67,17 @@ double __fastcall GetCreatureMaxHealth(Creature* creature) {
         creature_max_health += GetItemHealth(&creature->entity_data.equipment.shoulder);
     }
 
+    if (creature->entity_data.affiliation == Creature::Affiliations::Ennemy) {
+        creature_max_health *= 0.8;
+    }
+    if (creature->entity_data.affiliation == Creature::Affiliations::Pet) {
+        creature_max_health *= 5;
+    }
+
+    if (creature->entity_data.affiliation != Creature::Affiliations::Player) {
+        creature_max_health* (1 + creature->entity_data.power_base * 0.25);
+    }
+
 	return creature_max_health;
 }
 

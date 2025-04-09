@@ -6,7 +6,7 @@ void* ASMOnGetCoinAmount_jmpback;
 
 // The return value of this function is always multiplied by 10 afterward.
 double GetCoinAmount(float level, int32_t rarity) {
-    return level;
+    return 1 + (level / 10.f) * (1 + (float)rarity/0.25);
 }
 /* UNUSED
 void __declspec(naked) ASMOnGetCoinAmount() {

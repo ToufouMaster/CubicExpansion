@@ -2,6 +2,8 @@
 #include <windows.h>
 
 #include "Creature.h"
+#include "Zone.h"
+#include "Field.h"
 #include "msvc_bincompat.h"
 
 #define PUSH_ALL __asm {\
@@ -61,6 +63,11 @@ void WriteCALL(void* source, void* destination) {
     *((UINT32*)&location[1]) = (UINT32)destination - (UINT32)source - 5;
 
     VirtualProtect(location, 5, dwOldProtection, &dwOldProtection);
+}
+
+void* GetGameController() {
+    void* gc = *(void**)(base + 0x36B1C8);
+    return gc;
 }
 
 Creature* GetLocalCreature(void* game_controller) {

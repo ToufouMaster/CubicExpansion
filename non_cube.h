@@ -108,6 +108,16 @@ struct Item
 	uint16_t field_12;
 	ItemAdaption customization_data[32];
 	int32_t adaption_count;
+
+	bool IsItemSimilar(Item* item) {
+		if (this->category_id != item->category_id) return false;
+		if (this->item_id != item->item_id) return false;
+		if (this->modifier != item->modifier) return false;
+		if (this->rarity != item->rarity) return false;
+		if (this->material != item->material) return false;
+		if (this->adapted != item->adapted) return false;
+		return true;
+	}
 };
 
 struct ItemStack
@@ -202,9 +212,9 @@ struct zone_static_object
 	uint32_t field_4;
 	Vector3<int64_t> position;
 	uint32_t cuwo_orientation;
-	uint32_t vis_scale;
-	uint32_t phys_scale;
-	uint32_t height;
+	float vis_scale;
+	float phys_scale;
+	float height;
 	uint32_t field_30;
 	uint32_t some_timer;
 	uint32_t field_38;

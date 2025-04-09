@@ -15,12 +15,12 @@ double __fastcall GetConsumableItemHealth(Item* item) {
         case 4:
         case 5:
         case 6: {
-            return GetCreatureBaseMaxHealth(item->level + RARITY_POWER*item->rarity, 0, 0)*1.1;
+            return GetCreatureBaseMaxHealth(item->level, 0, 0) * GetRarityMultiplicator(item, true) * 1.1;
             //return 200 + GetItemScalingValue(item->level, item->rarity) * 30.0; // 20
         }
         case 8:
         case 9: {
-            return (GetCreatureBaseMaxHealth(item->level + RARITY_POWER*item->rarity, 0, 0) / 2.0) * 1.1;
+            return (GetCreatureBaseMaxHealth(item->level, 0, 0) / 2.0) * GetRarityMultiplicator(item, true) * 1.1;
             //return 100 + GetItemScalingValue(item->level, item->rarity) * 15.0; // 15
         }
         }

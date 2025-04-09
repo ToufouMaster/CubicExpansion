@@ -21,16 +21,20 @@ void __fastcall CharacterWidgetWeaponRatingUpdate(void* game_controller) {
         if (creature->entity_data.level != 0) {
             double base_scaling = GetItemScalingValue((uint32_t)left_weapon->level, 0);
             base_scaling = base_scaling / GetItemScalingValue(creature->entity_data.level, 0);
-            double rarity_scaling = GetItemScalingValue((uint32_t)left_weapon->rarity * RARITY_POWER, 0);
-            rating += base_scaling * (1 + rarity_scaling / GetItemScalingValue(MAX_RARITY * RARITY_POWER, 0));
+            rating += base_scaling * (1 + left_weapon->rarity * 0.25);
+
+            //double rarity_scaling = GetItemScalingValue((uint32_t)left_weapon->rarity * RARITY_POWER, 0);
+            //rating += base_scaling * (1 + rarity_scaling / GetItemScalingValue(MAX_RARITY * RARITY_POWER, 0));
         }
     }
     if (right_weapon->category_id == 3) {
         if (creature->entity_data.level != 0) {
             double base_scaling = GetItemScalingValue((uint32_t)right_weapon->level, 0);
             base_scaling = base_scaling / GetItemScalingValue(creature->entity_data.level, 0);
-            double rarity_scaling = GetItemScalingValue((uint32_t)right_weapon->rarity * RARITY_POWER, 0);
-            rating += base_scaling * (1 + rarity_scaling / GetItemScalingValue(MAX_RARITY * RARITY_POWER, 0));
+            rating += base_scaling * (1 + right_weapon->rarity * 0.25);
+            
+            //double rarity_scaling = GetItemScalingValue((uint32_t)right_weapon->rarity * RARITY_POWER, 0);
+            //rating += base_scaling * (1 + rarity_scaling / GetItemScalingValue(MAX_RARITY * RARITY_POWER, 0));
         }
     }
 

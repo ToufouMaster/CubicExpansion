@@ -38,7 +38,7 @@ double __fastcall GetItemRegeneration(Item* item) {
 
     double regeneration = GetItemScalingValue(item->level, item->rarity) * 5.0 * multiplier * multiplier2;
 
-    return regeneration;
+    return regeneration * GetRarityMultiplicator(item);
 }
 
 void __declspec(naked) ASMOnGetItemRegeneration() {

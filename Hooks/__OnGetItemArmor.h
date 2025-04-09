@@ -37,7 +37,7 @@ double __fastcall GetItemArmor(Item* item) {
 
     double armor = GetItemScalingValue(item->level, item->rarity) * multiplier;
 
-    return armor;
+    return armor * GetRarityMultiplicator(item) * 0.8;
 }
 
 void __declspec(naked) ASMOnGetItemArmor() {

@@ -32,7 +32,7 @@ double __fastcall GetItemResistance(Item* item) {
 
     double resistance = GetItemScalingValue(item->level, item->rarity) * multiplier;
 
-    return resistance;
+    return resistance * GetRarityMultiplicator(item) * 0.8;
 }
 
 void __declspec(naked) ASMOnGetItemResistance() {

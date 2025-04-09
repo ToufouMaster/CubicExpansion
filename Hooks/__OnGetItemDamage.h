@@ -5,10 +5,10 @@
 void* ASMOnGetItemDamage_jmpback;
 void* ASMOnGetItemScalingValue_jmpback;
 
-// When hitting ennemies as a player the calculation work but when looking at stats or being hit by ennemies display negative values.
+// Creature is only valid when called by GetCreature[Stat] functions such as GetCreatureDamage
 double __fastcall GetItemDamage(Item* item) { 
     double base_damage = 8.0;
-    double item_damage = (0.5 * GetItemScalingValue(item->level, item->rarity) + base_damage);
+    double item_damage = (0.5 * GetItemScalingValue(item->level, item->rarity) + base_damage) * GetRarityMultiplicator(item);
 
     uint32_t id = item->item_id;
     if (id >= 3 && id <= 13) {
@@ -28,6 +28,10 @@ double __fastcall GetItemDamage(Item* item) {
         return item_damage;
     }
 
+    if (id == 0xb) { // Wand
+        return item_damage *= 1.8;
+    }
+
     return item_damage*2;
 }
 
@@ -38,9 +42,6 @@ void __declspec(naked) ASMOnGetItemDamage() {
         call GetItemDamage
 
         POP_ALL
-
-        //original code
-        //mov esp, ebp
 
         jmp[ASMOnGetItemDamage_jmpback];
     }
@@ -53,9 +54,6 @@ void __declspec(naked) ASMOnGetItemScalingValue() {
         call GetItemScalingValue
 
         POP_ALL
-
-        //original code
-        //mov esp, ebp
 
         jmp[ASMOnGetItemScalingValue_jmpback];
     }

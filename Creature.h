@@ -4,6 +4,144 @@
 
 class Creature {
 public:
+
+	enum CharClass {
+		Warrior = 1,
+		Ranger,
+		Mage,
+		Rogue
+	};
+
+	// This enum was borowed from LastExceed Berld project
+	// https://github.com/LastExceed/berld/blob/7902f183952ae6379247799c8435d5a8ed915c6c/protocol/src/packet/creature_update.rs#L312
+	// Some values have been renamed
+	enum Affiliations {
+		Player,
+		Ennemy,
+		Field_2,
+		NPC,
+		Field_4,
+		Pet,
+		Neutral,
+	};
+
+	// This enum was borowed from LastExceed Berld project
+	// https://github.com/LastExceed/berld/blob/7902f183952ae6379247799c8435d5a8ed915c6c/protocol/src/packet/creature_update.rs#L324
+	// Some values have been renamed
+	enum Animations {
+		Idle,
+		DualWieldM1a,
+		DualWieldM1b,
+		AltDaggerM1a, //used by humanoids - like daggerM1, but yellow dmg + mana drain
+		AltDatterM1b, //used by humanoids - like daggerM1, but yellow dmg + mana drain
+		LongswordM2,
+		FistM1a, //also used with fists
+		FistM1b,
+		ShieldM2Charging,
+		ShieldM1a,
+		ShieldM1b,
+		UnarmedM2,
+		UnusedDualWieldAttack, //animation is like ripping swords apart
+		LongswordM1a,
+		LongswordM1b,
+		UnusedGreatweapon1, //probably for greatweapon A1
+		UnusedDaggerM2, //same as normal DaggerM2, but without poison
+		DaggerM2,
+		DaggerM1a,
+		DaggerM1b,
+		FistM2,
+		Kick,
+		ShootArrow,
+		CrossbowM2,
+		CrossbowM2Charging,
+		BowM2Charging,//also used by snout beetles
+		BoomerangThrow,
+		BoomerangM2Charging,
+		BeamDraining,//used by rune giant
+		Field_29,
+		StaffFireM1,
+		StaffFireM2,
+		StaffWaterM1,
+		StaffWaterM2,
+		HealingStream,
+		UnusedSummon,
+		UnusedCharging1,
+		BraceletFireM2,
+		WandFireM1,
+		BraceletsFireM1a,
+		BraceletsFireM1b,
+		BraceletsWaterM1a,
+		BraceletsWaterM1b,
+		BraceletWaterM2,
+		WandWaterM1,
+		WandWaterM2,
+		WandFireM2,
+		UnusedSmash, //same as normal smash, but without jump or damage
+		Intercept,
+		Teleport,
+		UnusedBowM2, //BowM2 but slower
+		VolantAttack, //monster default slow attack?
+		UnusedIdle, //immediately switches to Idle
+		Field_53,
+		Smash,
+		BowM2,//also used by snout beetles
+		Field_56,
+		GreatweaponM1a,
+		GreatweaponM1c,
+		GreatweaponM2Charging,
+		GreatweaponM2Berserker,
+		GreatweaponM2Guardian,
+		UnusedStab, //very similar to daggerM1b, but very fast
+		UnarmedM2Charging, //also used for DualWieldM2Charging
+		UnusedCharging2, //some sort of dualwield charging?
+		UnusedGreatweapon2,
+		UnusedGreatweapon3,
+		GreatweaponM1b,
+		Charge1,
+		Charge2,
+		UnusedSpinkick,
+		TurtleBlock,//unused
+		TurtleSpin,
+		LichScream,
+		UnusedStomp,
+		QuadrupedAttack,
+		ChargeFrontFlip,
+		ChargeLeftFlip,
+		ChargeRightFlip,
+		Stealth,
+		Drink,
+		Eat,
+		PetFoodPresent,
+		Sit,
+		Sleep,
+		Field_85,
+		Cyclone,
+		FireExplosionLong,//used by bosses
+		FireExplosionShort,
+		Lava,//used by bosses
+		UnusedSplash,
+		EarthQuake,//used by troll
+		Clone,
+		ChargeM2, //does UnarmedM2, DaggerM2, or GreatweaponM2Guardian during the run, depending on equipped weapons. also applies camouflage-like visual effect. used by werewolves
+		FireBeamM1,//unused, future wand m1
+		FireRayM2,//used by wizards and witches, future wand m2
+		Shuriken,
+		Field_97,
+		UnusedBlock,//looks different depending on leftweapon slot being empty or not
+		Field_99,
+		Field_100,
+		SuperBulwalk, //unused, casts bulwalk
+		Field_102,
+		SuperManaShield, //unused - casts manashield
+		ShieldM2,
+		TeleportToCity,
+		Riding,
+		Sail,
+		Boulder,
+		ManaCubePickup,
+		UnusedQuadrupedAttack //same as normal QuadrupedAttack except no sound nor damage
+	};
+
 	int vftable;
 	int field_4;
 	int64_t GUID;
@@ -17,8 +155,8 @@ public:
 		int head_rotation;
 
 		// 0b00000100 = Touching wall
-		uint8_t physics_flags;
-		uint8_t field_4D;
+		uint32_t physics_flags;
+		uint8_t affiliation;
 		char field_4E;
 		char field_4F;
 		uint8_t hostility_flags; // 0x50

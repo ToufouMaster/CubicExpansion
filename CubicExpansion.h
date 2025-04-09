@@ -14,6 +14,8 @@
 
 #include "Hooks/__OnGetCreatureMaxHealth.h"
 #include "Hooks/__OnGetCreatureDamage.h"
+#include "Hooks/__OnGetCreatureArmor.h"
+#include "Hooks/__OnGetCreatureResistance.h"
 
 #include "Hooks/__OnGetConsumableItemHealth.h"
 
@@ -24,10 +26,16 @@
 #include "Hooks/__OnGetItemArmor.h"
 #include "Hooks/__OnGetItemResistance.h"
 #include "Hooks/__OnGetItemRegeneration.h"
+#include "Hooks/__OnGetItemCoinValue.h"
 
 #include "Hooks/__OnGetCoinAmount.h"
 #include "Hooks/__OnRessourceCreatureGetItemDrop.h"
 
+#include "Hooks/CreatureSkills/__OnGetCreatureM1SkillId.h"
+#include "Hooks/CreatureSkills/__OnGetCreatureM2SkillId.h"
+
 #include "cube.h"
 #include "non_cube.h"
+#include "scale_functions.h"
 
+bool IsItemEquipedByCreature(Item* item, Creature* creature);

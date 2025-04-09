@@ -42,7 +42,7 @@ double __fastcall GetItemHealth(Item* item) {
 
     double health = GetItemScalingValue(item->level, item->rarity) * 0.5 * multiplier * multiplier2;
 
-    return health;
+    return health * GetRarityMultiplicator(item);
 }
 
 void __declspec(naked) ASMOnGetItemHealth() {
