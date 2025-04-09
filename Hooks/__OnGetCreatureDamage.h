@@ -66,7 +66,7 @@ double __fastcall GetCreatureDamage(Creature* creature, int32_t skill_id) {
     }
 
     if (creature->entity_data.affiliation != Creature::Affiliations::Player) {
-        creature_damage * (1 + creature->entity_data.power_base * 0.25);
+        creature_damage *= (1 + creature->entity_data.power_base * 0.25);
     }
 
     return creature_damage;

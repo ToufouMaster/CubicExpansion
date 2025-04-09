@@ -35,7 +35,7 @@ double __fastcall GetCreatureResistance(Creature* creature) {
     }
     
     if (creature->entity_data.affiliation != Creature::Affiliations::Player) {
-        creature_resistance * (1 + creature->entity_data.power_base * 0.25);
+        creature_resistance *= (1 + creature->entity_data.power_base * 0.25);
     }
 
     return creature_resistance;

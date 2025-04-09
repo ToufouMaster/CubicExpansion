@@ -75,7 +75,7 @@ double __fastcall GetCreatureMaxHealth(Creature* creature) {
     }
 
     if (creature->entity_data.affiliation != Creature::Affiliations::Player) {
-        creature_max_health* (1 + creature->entity_data.power_base * 0.25);
+        creature_max_health*= (1 + creature->entity_data.power_base * 0.25);
     }
 
 	return creature_max_health;
