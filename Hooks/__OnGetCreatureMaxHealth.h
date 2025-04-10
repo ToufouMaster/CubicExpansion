@@ -103,3 +103,8 @@ void SetupOnGetCreatureMaxHealth() {
     WriteJMP((void*)(base + 0x44db6), (void*)&ASMOnGetCreatureMaxHealth);
     ASMOnGetCreatureMaxHealth_jmpback = (void*)(base + 0x44fdb);
 }
+
+void SetupOnServerGetCreatureMaxHealth() {
+    WriteJMP((void*)(base + 0xFDA6), (void*)&ASMOnGetCreatureMaxHealth);
+    ASMOnGetCreatureMaxHealth_jmpback = (void*)(base + 0xFFCB);
+}

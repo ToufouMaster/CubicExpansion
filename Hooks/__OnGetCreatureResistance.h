@@ -57,3 +57,8 @@ void SetupOnGetCreatureResistance() {
     WriteJMP((void*)(base + 0x467A6), (void*)&ASMOnGetCreatureResistance);
     ASMOnGetCreatureResistance_jmpback = (void*)(base + 0x4693F);
 }
+
+void SetupOnServerGetCreatureResistance() {
+    WriteJMP((void*)(base + 0x11546), (void*)&ASMOnGetCreatureResistance);
+    ASMOnGetCreatureResistance_jmpback = (void*)(base + 0x116DF);
+}

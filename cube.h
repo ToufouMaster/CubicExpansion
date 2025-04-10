@@ -6,6 +6,8 @@
 #include "Field.h"
 #include "msvc_bincompat.h"
 
+static const bool IS_SERVER = true;
+
 #define PUSH_ALL __asm {\
     __asm push eax          \
     __asm push ebx          \

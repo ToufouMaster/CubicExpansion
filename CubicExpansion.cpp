@@ -13,8 +13,7 @@ const bool DEBUG = false;
 DWORD WINAPI SetupHooks() {
     //DEBUG
     //SetupOnTemporaryFunctionDebug();
-    
-    
+
     SetupOnAddPotionCraftKnowledge();
     SetupOnInventoryWidgetTabUpdate();
     SetupOnUpdateCraftingInventoryItems();
@@ -48,9 +47,20 @@ DWORD WINAPI SetupHooks() {
     return 0;
 }
 
+DWORD WINAPI SetupServerHooks() {
+    SetupOnServerGetCreatureMaxHealth();
+    SetupOnServerGetCreatureDamage();
+    SetupOnServerGetCreatureArmor();
+    SetupOnServerGetCreatureResistance();
+    return 0;
+}
+
 DWORD WINAPI MainLoop() {
-    SetupHooks();
-    while (true) {
+    if (IS_SERVER)
+        SetupServerHooks();
+    else
+        SetupHooks();
+    /*while (true) {
         if (DEBUG == false) break;
         if (GetAsyncKeyState((int)'H') & 0x8000) {
             char* gc = (char*)GetGameController();
@@ -91,7 +101,7 @@ DWORD WINAPI MainLoop() {
             LeaveCriticalSection(critical_section);
             Sleep(250);
         }
-    }
+    }*/
     return 0;
 }
 

@@ -57,3 +57,8 @@ void SetupOnGetCreatureArmor() {
     WriteJMP((void*)(base + 0x3cff6), (void*)&ASMOnGetCreatureArmor);
     ASMOnGetCreatureArmor_jmpback = (void*)(base + 0x3d18f);
 }
+
+void SetupOnServerGetCreatureArmor() {
+    WriteJMP((void*)(base + 0x8306), (void*)&ASMOnGetCreatureArmor);
+    ASMOnGetCreatureArmor_jmpback = (void*)(base + 0x849F);
+}

@@ -10,7 +10,7 @@ if (POLICY CMP0141)
 endif()
 
 project ("CubicExpansion")
-add_library(CubicExpansion SHARED "CubicExpansion.cpp" "Hooks/__OnGetCreatureArmor.h" "Hooks/__OnGetCreatureResistance.h")
+add_library(CubicExpansion SHARED "CubicExpansion.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET CubicExpansion PROPERTY CXX_STANDARD 20)

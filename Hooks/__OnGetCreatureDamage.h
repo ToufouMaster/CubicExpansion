@@ -138,3 +138,10 @@ void SetupOnGetCreatureDamage() {
     WriteJMP((void*)(base + 0x46E83), (void*)&ASMOnGetCreatureProjectileDamage);
     ASMOnGetCreatureProjectileDamage_jmpback = (void*)(base + 0x4710B);
 }
+
+void SetupOnServerGetCreatureDamage() {
+    WriteJMP((void*)(base + 0x8F84), (void*)&ASMOnGetCreatureDamage);
+    ASMOnGetCreatureDamage_jmpback = (void*)(base + 0x924B);
+    WriteJMP((void*)(base + 0x94A6), (void*)&ASMOnGetCreatureProjectileDamage);
+    ASMOnGetCreatureProjectileDamage_jmpback = (void*)(base + 0x95C4);
+}

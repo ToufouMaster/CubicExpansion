@@ -78,8 +78,9 @@ bool IsItemInteractingPickupableItem(Item* item) {
 double GetRarityMultiplicator(Item* item, bool force = false) {
     double rarity = item->rarity * 0.25;
     double multiplicator = 1.0;
-    Creature* creature = GetLocalCreature(GetGameController());
+    if (IS_SERVER) force = true;
     if (force) return multiplicator + rarity;
+    Creature* creature = GetLocalCreature(GetGameController());
 
     if ((not IsItemEquipedByCreature(item, creature) && not IsItemHoveredInInventory(item))) {
         if (not IsItemInteractingPickupableItem(item)) {
